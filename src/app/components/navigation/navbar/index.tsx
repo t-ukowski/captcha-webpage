@@ -54,9 +54,7 @@ const NavigationBar = () => {
           <Link href="/study">Badanie</Link>
         </NavbarItem>
         <NavbarItem isActive={currentPath === "/info"} className="ml-1 mr-1">
-          <Link isExternal href="/info">
-            Informacje
-          </Link>
+          <Link href="/info">Informacje</Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">

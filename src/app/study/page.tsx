@@ -1,18 +1,63 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Typography from "../components/typography/Typography";
+
+interface CaptchaSolveEventDetail {
+  token: string;
+}
 
 const Study = () => {
   const [step, setStep] = useState(0);
+  const [token, setToken] = useState("");
+  const [captchaLoaded, setCaptchaLoaded] = useState(false);
 
-  // Callback function that updates the step or shows the form link
-  const handleCaptchaSolve = () => {
-    if (step < 2) {
-      setStep(step + 1); // Move to the next CAPTCHA
-    } else {
-      setStep(step + 1); // Prepare to show the form link
-    }
-  };
+  useEffect(() => {
+    if (step >= 3) return; // If three CAPTCHAs have been solved, stop loading new ones.
+
+    const loadCaptchaScript = () => {
+      const script = document.createElement("script");
+      script.src = "https://t-ukowski.github.io/captcha-widget/widget.js";
+      script.async = true;
+      script.onload = () => {
+        console.log("Captcha script loaded successfully.");
+        setCaptchaLoaded(true);
+      };
+      script.onerror = () => {
+        console.error("Error loading the captcha script.");
+        setCaptchaLoaded(false);
+      };
+
+      document.body.appendChild(script);
+
+      return script;
+    };
+
+    const script = loadCaptchaScript();
+
+    const handleCaptchaSolve = (event: Event) => {
+      const customEvent = event as CustomEvent<CaptchaSolveEventDetail>;
+      setToken(customEvent.detail.token);
+      setStep((prevStep) => prevStep + 1);
+      // Remove the script and clean up after each CAPTCHA is solved
+      document.body.removeChild(script);
+      setCaptchaLoaded(false); // Ensure captcha is reloaded
+    };
+
+    window.addEventListener(
+      "captchaSolved",
+      handleCaptchaSolve as EventListener
+    );
+
+    return () => {
+      window.removeEventListener(
+        "captchaSolved",
+        handleCaptchaSolve as EventListener
+      );
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, [step]); // Re-run this effect whenever `step` changes
 
   return (
     <div className="min-h-[calc(100vh-64px)] bg-background text-foreground p-8 space-y-6">
@@ -21,23 +66,16 @@ const Study = () => {
       </Typography>
       {step < 3 ? (
         <div className="captcha-widget-container">
-          {/* Placeholder for CAPTCHA widget */}
+          {!captchaLoaded && <p>Loading CAPTCHA...</p>}
           <div
             style={{
               border: "2px solid #ccc",
               padding: "20px",
               textAlign: "center",
             }}
-          >
-            <p>Tutaj widżet CAPTCHA {step + 1}</p>
-            {/* Button to simulate solving the CAPTCHA */}
-            <button
-              onClick={handleCaptchaSolve}
-              className="mt-4 p-2 bg-blue-500 text-white rounded"
-            >
-              Solve CAPTCHA
-            </button>
-          </div>
+            id="captcha" // This element must exist for the CAPTCHA script to attach itself
+          ></div>
+          <p>{`Token: ${token}`}</p>
         </div>
       ) : (
         <div className="form-link-container">

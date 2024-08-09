@@ -9,6 +9,13 @@ export default function Home() {
         opartego o piktogramy.{" "}
       </Typography>
       <Typography variant="body">
+        CAPTCHA {"("}Completely Automated Public Turing test to tell Computers
+        and Humans Apart{")"} - rodzaj techniki stosowanej jako zabezpieczenie
+        na stronach internetowych, celem której jest odróżnienie człowieka od
+        maszyny {"("}dopuszczenie do przesłania danych wypełnionych tylko przez
+        człowieka{")"}{" "}
+      </Typography>
+      <Typography variant="body">
         Bardziej szczegółowe informacje na temat pracy magisterskiej, która
         opiera się o ten projekt, znajdziesz w zakładce{" "}
         <Link href="/info" className="text-primary">

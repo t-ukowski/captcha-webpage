@@ -9,8 +9,8 @@ export default function Home() {
         opartego o piktogramy.{" "}
       </Typography>
       <Typography variant="body">
-        Szczegółowe informacje na temat pracy magisterskiej, która opiera się o
-        ten projekt, znajdziesz w zakładce{" "}
+        Bardziej szczegółowe informacje na temat pracy magisterskiej, która
+        opiera się o ten projekt, znajdziesz w zakładce{" "}
         <Link href="/info" className="text-primary">
           Informacje
         </Link>

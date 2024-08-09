@@ -69,7 +69,7 @@ const Study = () => {
       </Typography>
       {step < 3 ? (
         <div className="captcha-widget-container">
-          {!captchaLoaded && <p>Loading CAPTCHA...</p>}
+          {!captchaLoaded && <p>Ładowanie testu CAPTCHA...</p>}
           <div
             style={{
               border: "2px solid #ccc",

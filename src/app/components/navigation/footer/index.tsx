@@ -6,8 +6,8 @@ import Typography from "../../typography/Typography";
 const Footer = () => {
   return (
     <div className="bg-primary-200 flex flex-col items-center pt-6">
-      <Typography variant="footer" className="mt-1">
-        Gugu gaga
+      <Typography variant="footer" className="mt-1 pb-1">
+        Projekt kodu CAPTCHA i praca dyplomowa autorstwa Tomasza Ukowskiego
       </Typography>
     </div>
   );

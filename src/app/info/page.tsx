@@ -9,8 +9,8 @@ const Info = () => {
         Jestem studentem Informatyki na Wydziale Informatyki Akademii
         Górniczo-Hutniczej w Krakowie. Obecnie zajmuję się przygotowaniem pracy
         magisterskiej "Analiza metod weryfikacji CAPTCHA opartych o zastosowania
-        piktogramów". Obecna strona internetowa i badanie są finalnym elementem
-        tejże pracy.
+        piktogramów". Ta strona internetowa i dostępne na niej badanie są
+        finalnym elementem tego procesu.
       </Typography>
       <Typography variant="subheader">Cel pracy</Typography>
       <Typography variant="body">
@@ -28,7 +28,7 @@ const Info = () => {
         interaktywnego układania brakujących elementów. O zaletach takiego
         rozwiązania, szczególnie pod względem bezpieczeństwa, długo by mówić -
         najważniejsze, że jest to koncept z potencjałem i ten potencjał będzie
-        zmierzony również za pomocą tego badania.
+        zmierzony za pomocą udostępnionego tu badania.
       </Typography>
       <Typography variant="subheader">Formularz badania</Typography>
       <Typography variant="body">

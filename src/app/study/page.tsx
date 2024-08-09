@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Typography from "../components/typography/Typography";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 interface CaptchaSolveEventDetail {
   token: string;
@@ -10,6 +11,8 @@ const Study = () => {
   const [step, setStep] = useState(0);
   const [token, setToken] = useState("");
   const [captchaLoaded, setCaptchaLoaded] = useState(false);
+
+  const isMobile = useMediaQuery("(max-width:600px)");
 
   useEffect(() => {
     if (step >= 3) return; // If three CAPTCHAs have been solved, stop loading new ones.
@@ -61,7 +64,7 @@ const Study = () => {
 
   return (
     <div className="min-h-[calc(100vh-64px)] bg-background text-foreground p-8 space-y-6">
-      <Typography variant="header">
+      <Typography variant={isMobile ? "subheader" : "header"}>
         CAPTCHA nr {Math.min(step + 1, 3)}/3
       </Typography>
       {step < 3 ? (

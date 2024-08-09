@@ -63,7 +63,7 @@ const Study = () => {
   }, [step]); // Re-run this effect whenever `step` changes
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-background text-foreground p-8 space-y-6">
+    <div className="min-h-[calc(100vh-64px)] bg-background text-foreground p-4 md:p-8 space-y-3 md:space-y-6">
       <Typography variant={isMobile ? "subheader" : "header"}>
         CAPTCHA nr {Math.min(step + 1, 3)}/3
       </Typography>

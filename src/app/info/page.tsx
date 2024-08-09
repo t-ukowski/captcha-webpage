@@ -8,9 +8,9 @@ const Info = () => {
       <Typography variant="body">
         Jestem studentem Informatyki na Wydziale Informatyki Akademii
         Górniczo-Hutniczej w Krakowie. Obecnie zajmuję się przygotowaniem pracy
-        magisterskiej "Analiza metod weryfikacji CAPTCHA opartych o zastosowania
-        piktogramów". Ta strona internetowa i dostępne na niej badanie są
-        finalnym elementem tego procesu.
+        magisterskiej {'"'}Analiza metod weryfikacji CAPTCHA opartych o
+        zastosowania piktogramów{'"'}. Ta strona internetowa i dostępne na niej
+        badanie są finalnym elementem tego procesu.
       </Typography>
       <Typography variant="subheader">Cel pracy</Typography>
       <Typography variant="body">

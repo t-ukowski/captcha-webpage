@@ -44,7 +44,7 @@ const NavigationBar = () => {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden text-foreground"
         />
-        <NavbarBrand>PictogramCAPTCHA</NavbarBrand>
+        <NavbarBrand className="text-foreground">PictogramCAPTCHA</NavbarBrand>
       </NavbarContent>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem isActive={currentPath === "/"} className="ml-1 mr-1">
